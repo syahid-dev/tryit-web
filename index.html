@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compiler</title>
+    <link rel="stylesheet" href="assets/css/tabler.min.css">
+    <link rel="stylesheet" href="assets/css/tabler-vendors.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <form target="coderesult" action="compile.php" method="POST" enctype="multipart/form-data" class="row" id="form">
+                                <div class="col-md col-12">
+                                    <div class="card mb-3 h-100">
+                                        <div class="card-header d-flex justify-content-between">
+                                            <h3 class="card-title">Kode</h3>
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <select name="lang" class="form-control">
+                                                        <option value="php">PHP</option>
+                                                        <option value="html">html</option>
+                                                        <option value="js">js</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button type="submit" class="btn btn-success">RUN</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <textarea name="code" class="form-control"><?php echo "hello world" ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md col-12">
+                                    <div class="card mb-3 h-100">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Result</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <iframe name="coderesult" id="code-result" frameborder="0"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/tabler.min.js"></script>
+    <script>
+        (function() {
+            document.getElementById('form').addEventListener('submit', function() {
+                const createEl = function(inner) {
+                    const el = document.createElement('div');
+                    el.innerHTML = inner;
+                    return el.children;
+                };
+            });
+        })();
+    </script>
+</body>
+</html>
